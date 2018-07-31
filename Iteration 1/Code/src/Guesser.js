@@ -1,8 +1,8 @@
 class Guesser {
   constructor() {
-    this.number = null;
+    this.number;
   }
-  setup() {
+  generateNumber() {
     this.number = Math.floor(Math.random()*100)
   }
 
