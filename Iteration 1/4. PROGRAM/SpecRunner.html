@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <title>Jasmine Spec Runner v3.1.0</title>
@@ -11,18 +12,18 @@
   <script src="lib/jasmine-3.1.0/jasmine-html.js"></script>
   <script src="lib/jasmine-3.1.0/boot.js"></script>
 
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
   <!-- include source files here... -->
-  <script src="src/Player.js"></script>
-  <script src="src/Song.js"></script>
-  <script src="src/Guesser.js"></script>
-
+  
   <!-- include spec files here... -->
-  <!-- <script src="spec/SpecHelper.js"></script> -->
-  <!-- <script src="spec/PlayerSpec.js"></script> -->
-  <script src="spec/GuesserSpec.js"></script>
-
+  
 </head>
 
 <body>
+  <div id='guesser1'></div>
+  <script src="src/Guesser1.js"></script>
+  <script src="spec/Guesser1Spec.js"></script>
 </body>
+
 </html>

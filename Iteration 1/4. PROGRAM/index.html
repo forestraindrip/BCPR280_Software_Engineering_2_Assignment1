@@ -6,27 +6,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Number Guesser</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
-  <script src="src/Player.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 
 <body>
-  <div id="numberGuesser">
-    <span>TEXT</span>
+  <div id='guesser1'>
+    <span>The actual is {{actualNumber}}</span>
     <br>
-    <input type="number" min="0" max="99">
+    <input id='numberInput' type="range" min="0" max="99">
     <br>
     <input type="submit">
   </div>
-  <script>
-    var app1 = new Vue({
-      el: "#numberGuesser",
-      data: {
 
-      }
-    })
-  </script>
+  <script src="src/Guesser1.js"></script>
+  <script>guesser1.setupNumber();</script>
 </body>
 
 </html>
