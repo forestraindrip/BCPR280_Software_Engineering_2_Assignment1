@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Number Guesser</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id='guesser1'>
+    <span>The actual is {{actualNumber}}</span>
+    <br>
+    <input id='numberInput' type="range" min="0" max="99">
+    <br>
+    <input type="submit">
+  </div>
+
+  <script src="src/Guesser1.js"></script>
+  <script>guesser1.setupNumber();</script>
+</body>
+
+</html>

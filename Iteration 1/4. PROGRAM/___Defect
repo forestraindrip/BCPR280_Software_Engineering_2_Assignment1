@@ -1,0 +1,17 @@
+1.method: => methods:
+
+
+2.Spec 'guesser1 should be a number between 0 to 99' has no expectations.
+expect(0 <= theNumber && theNumber < 100);
+expect(theNumber).toBeTruthy(0 <= theNumber && theNumber < 100);
+
+3.logic error
+`You got it in 6 trials`
+expect(guesser1.compareNumber()).toEqual(`You got it in 7 trials`);
+
+4.<script src="src/Guesser1.js">
+  </script>
+
+5. <button @click="setup()">Replay</button>
+
+6. no getInputNumber()
