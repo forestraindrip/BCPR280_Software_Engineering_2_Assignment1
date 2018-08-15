@@ -21,9 +21,20 @@
 </head>
 
 <body>
-  <div id='guesser1'></div>
+  <div id='guesser1' hidden>
+    <!-- <span>The actual is {{actualNumber}}</span> -->
+    <br>
+    <span>Input number is {{inputNumber}}</span>
+    <br>
+    <span>{{displayMessage}}</span>
+    <br>
+    <input id='numberInput' type="range" min="0" max="99" @change="compareNumber()">
+    <br>
+    <button @click="setup()">Replay</button>
+  </div>
   <script src="src/Guesser1.js"></script>
   <script src="spec/Guesser1Spec.js"></script>
+
 </body>
 
 </html>

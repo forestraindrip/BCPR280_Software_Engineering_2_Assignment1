@@ -10,3 +10,7 @@ logic error
 expect(guesser1.compareNumber()).toEqual(`You got it in 7 trials`);
 
 <script>
+
+Wrong output for jasmine
+
+() => should be function ()
