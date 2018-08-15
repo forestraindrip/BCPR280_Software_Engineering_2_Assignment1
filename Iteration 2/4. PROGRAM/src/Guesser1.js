@@ -4,36 +4,38 @@ let guesser1 = new Vue({
     inputNumber: null,
     actualNumber: null,
     counter: 0,
-    displayMessage: ''
+    displayMessage: ""
   },
   methods: {
-    getNumber: () => {
-      return guesser1.actualNumber;
+    getActualNumber: function() {
+      return this.actualNumber;
     },
-    setup: () => {
-      guesser1.displayMessage = 'New Game'
-      guesser1.counter = 0;
-      guesser1.actualNumber = Math.floor(Math.random() * 100);
-      guesser1.getInputNumber()
-      document.getElementById('numberInput').removeAttribute('disabled')
+    setup: function() {
+      this.displayMessage = "New Game";
+      this.counter = 0;
+      this.actualNumber = Math.floor(Math.random() * 100);
+      this.getInputNumber();
+      document.getElementById("numberInput").removeAttribute("disabled");
     },
-    compareNumber: () => {
+    compareNumber: function() {
       var message = "";
-      guesser1.getInputNumber()
-      guesser1.counter++;
+      this.getInputNumber();
+      this.counter++;
       // debugger
-      if (guesser1.inputNumber === guesser1.actualNumber) {
-        message = `You got it in ${guesser1.counter} trials`;
-        document.getElementById('numberInput').setAttribute('disabled','disabled')
-      } else if (guesser1.inputNumber > guesser1.actualNumber) {
+      if (this.inputNumber === this.actualNumber) {
+        message = `You got it in ${this.counter} trials`;
+        document
+          .getElementById("numberInput")
+          .setAttribute("disabled", "disabled");
+      } else if (this.inputNumber > this.actualNumber) {
         message = `Try lower`;
-      } else if (guesser1.inputNumber < guesser1.actualNumber) {
+      } else if (this.inputNumber < this.actualNumber) {
         message = `Try higher`;
       }
-      guesser1.displayMessage = message;
+      this.displayMessage = message;
     },
-    getInputNumber: ()=>{
-      guesser1.inputNumber = parseInt(document.getElementById('numberInput').value)
+    getInputNumber: function() {
+      this.inputNumber = parseInt(document.getElementById("numberInput").value);
     }
   }
 });
