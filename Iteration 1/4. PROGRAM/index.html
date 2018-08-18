@@ -13,13 +13,15 @@
   <div id='guesser1'>
     <span>The actual is {{actualNumber}}</span>
     <br>
+    <span>Input: {{inputNumber}}</span>
+    <br>
     <input id='numberInput' type="range" min="0" max="99">
     <br>
-    <input type="submit">
+    <input type="submit" @click="compareNumber()">
   </div>
 
   <script src="src/Guesser1.js"></script>
-  <script>guesser1.setupNumber();</script>
+  <script>guesser1.setup();</script>
 </body>
 
 </html>
