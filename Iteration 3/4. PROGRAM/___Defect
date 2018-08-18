@@ -1,0 +1,14 @@
+
+
+Spec 'guesser1 should be a number between 0 to 99' has no expectations.
+expect(0 <= theNumber && theNumber < 100);
+expect(theNumber).toBeTruthy(0 <= theNumber && theNumber < 100);
+
+logic error
+`You got it in 6 trials`
+expect(guesser1.compareNumber()).toEqual(`You got it in 7 trials`);
+
+<script>
+
+Wrong output for jasmine
+
