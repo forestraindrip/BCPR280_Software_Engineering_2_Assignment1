@@ -1,4 +1,4 @@
-let guesser1 = new Vue({
+let guesser1 = new Vue({ // eslint-disable-line no-unused-vars
   el: "#guesser1",
   data: {
     inputNumber: 51,

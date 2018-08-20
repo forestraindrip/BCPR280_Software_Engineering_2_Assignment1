@@ -1,0 +1,18 @@
+1. Jasmine tester
+2. question 1
+
+3. Reconstruct Q1 vue.js code to allow inheritance for following iterations
+
+4. Draw diagram
+
+5. Jasmine tester for Q2
+
+6. Q2 program
+
+7. Q3 Jasmine tester
+
+8. Q3 program
+
+9. Jasmine tester for Q4 
+
+10. Q4 program

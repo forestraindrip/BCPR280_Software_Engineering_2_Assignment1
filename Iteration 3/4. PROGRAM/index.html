@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Number Guesser</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="src/Guesser1.js"></script>
+</head>
+
+<body>
+  <select>
+    <option value="app1">app1</option>
+    <option value="app2">app2</option>
+    <option value="app3">app3</option>
+    <option value="app4">app4</option>
+  </select>
+  <br>
+  <br>
+
+  <div id='guesserDiv'>
+    <div id='guesser1Div'>
+      <span>Actual number is {{actualNumber}}</span>
+      <br>
+      <span>Input number is {{inputNumber}}</span>
+      <br>
+      <br>
+      <span>{{displayMessage}}</span>
+      <br>
+      <!-- <input @change='getInputNumber()' id='numberInputBox' type="range" min="0" max="99"> -->
+      <input id='numberInputBox' type="number" min="0" max="99">
+      <br>
+      <input type='button' @click="compareNumber" value="Input a number" id="numInputBtn">
+      <br>
+      <br>
+      <button @click="setup()">Replay</button>
+    </div>
+
+    <div id='guesser2Div'></div>
+    <div id='guesser3Div'></div>
+    <div id='guesser4Div'></div>
+  </div>
+
+  <script src="src/ViewModel.js"></script>
+  <script>
+
+    let theGuesser1 = new Vue(viewModel)
+    theGuesser1.setup()
+    viewModel2 = JSON.parse(JSON.stringify(viewModel))
+    viewModel2.el = "#guesser1Div";
+    viewModel2.methods = { ...viewModel.methods }
+    // viewModel2.data.guesser = new Guesser2()
+    // let theGuesser2 = new Vue(viewModel2)
+
+  </script>
+
+</body>
+
+</html>
