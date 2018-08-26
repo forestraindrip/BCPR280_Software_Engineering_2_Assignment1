@@ -1,18 +1,26 @@
-1. Jasmine tester
-2. question 1
+1. Create testing cases, spike solution(as dummy program) and Jasmine tester for Q1 (Done)
+2. Draw wireframe and write Q1 program (Done): Vue is both model and controller, no class in the code. Because I don't know how to implement inheritance at that time.
+3. Restructure Q1 vue.js code to allow inheritance for following iterations (Done)
 
-3. Reconstruct Q1 vue.js code to allow inheritance for following iterations
+4. Draw dynamic diagram, pseudocode , storyboard for Q2
+   Create testing cases and Jasmine tester for Q2
+5. Write Q2 program
+6. Restructure Q2 program
 
-4. Draw diagram
+7. Write use case, create testing cases and Jasmine tester for Q3 
+8. Write Q3 program
+9. Write complex algorithm sheet, create testing cases and Jasmine tester for Q4 
+10.Write Q4 program
 
-5. Jasmine tester for Q2
+------------------------------------------
+Hi Marcus  (FYI Luofeng)
 
-6. Q2 program
+YES that works.
 
-7. Q3 Jasmine tester
+BUT you might find that you after you can combine your  requirements/design iterations (Write use case, create testing cases and Jasmine tester for..) with the implementation iterations (Write Qxx program)
 
-8. Q3 program
+And then add some refactoring iterations to improve the internal structure of the code and in particular remove duplication. 
+The cycle becomes: 1) write tests as requirements/design 2) do the simplest thing that works to pass the tests 3) refactor to improve the internal quality of the code 
+see https://xp123.com/articles/xp-programmers-cube-a-day-in-the-life/
 
-9. Jasmine tester for Q4 
-
-10. Q4 program
+so 4+ refactoring iterations , one after each build iteration
