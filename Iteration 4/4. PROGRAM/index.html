@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="src/Guesser1.js"></script>
+  <script src="src/Guesser2.js"></script>
 </head>
 
 <body>
@@ -30,15 +31,30 @@
       <span>{{displayMessage}}</span>
       <br>
       <!-- <input @change='getInputNumber()' id='numberInputBox' type="range" min="0" max="99"> -->
-      <input id='numberInputBox' type="number" min="0" max="99">
+      <input id='numberInputBox1' type="number" min="0" max="99">
       <br>
-      <input type='button' @click="compareNumber" value="Input a number" id="numInputBtn">
+      <input type='button' @click="compareNumber" value="Input a number" id="numInputBtn1">
       <br>
       <br>
       <button @click="setup()">Replay</button>
     </div>
 
-    <div id='guesser2Div'></div>
+    <div id='guesser2Div'>
+      <span>Actual number is {{actualNumber}}</span>
+      <br>
+      <span>Input number is {{inputNumber}}</span>
+      <br>
+      <br>
+      <span>{{displayMessage}}</span>
+      <br>
+      <!-- <input @change='getInputNumber()' id='numberInputBox' type="range" min="0" max="99"> -->
+      <input id='numberInputBox2' type="number" min="0" max="99">
+      <br>
+      <input type='button' @click="compareNumber" value="Input a number" id="numInputBtn2">
+      <br>
+      <br>
+      <button @click="setup()">Replay</button>
+    </div>
     <div id='guesser3Div'></div>
     <div id='guesser4Div'></div>
   </div>
@@ -48,12 +64,12 @@
 
     let theGuesser1 = new Vue(viewModel)
     theGuesser1.setup()
-    viewModel2 = JSON.parse(JSON.stringify(viewModel))
-    viewModel2.el = "#guesser1Div";
+    let viewModel2 = JSON.parse(JSON.stringify(viewModel))
+    viewModel2.el = "#guesser2Div";
     viewModel2.methods = { ...viewModel.methods }
-    // viewModel2.data.guesser = new Guesser2()
-    // let theGuesser2 = new Vue(viewModel2)
-
+    viewModel2.data.guesser = new Guesser2()
+    let theGuesser2 = new Vue(viewModel2)
+    theGuesser2.setup()
   </script>
 
 </body>

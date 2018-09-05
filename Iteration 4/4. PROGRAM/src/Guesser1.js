@@ -23,7 +23,7 @@ class Guesser1 { // eslint-disable-line no-unused-vars
   }
 
   setup() {
-    document.getElementById("numberInputBox").value = null;
+    document.getElementById("numberInputBox1").value = null;
     //document.getElementById("numInputBtn").removeAttribute("disabled");
     this._inputNumber = null;
     this.counter = 0;
@@ -31,22 +31,22 @@ class Guesser1 { // eslint-disable-line no-unused-vars
   }
 
   compareNumber() {
-    var message = "";
+    let message = "";
     this.counter++;
-    if (this._inputNumber === this.actualNumber) {
+    if (this.inputNumber === this.actualNumber) {
       message = `You got it in ${this.counter} trials`;
       //document.getElementById("numInputBtn").setAttribute("disabled", "disabled");
-      // document.getElementById("numberInput").setAttribute("disabled", "disabled");
-    } else if (this._inputNumber > this.actualNumber) {
+      //document.getElementById("numberInput").setAttribute("disabled", "disabled");
+    } else if (this.inputNumber > this.actualNumber) {
       message = `Try lower`;
-    } else if (this._inputNumber < this.actualNumber) {
+    } else if (this.inputNumber < this.actualNumber) {
       message = `Try higher`;
     }
     return message;
   }
    setInputNumber() {
     this.inputNumber = parseInt(
-      document.getElementById("numberInputBox").value
+      document.getElementById("numberInputBox1").value
     );
   }
 }
