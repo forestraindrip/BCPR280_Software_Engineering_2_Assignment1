@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Jasmine Spec Runner v3.1.0</title>
+
+  <link rel="shortcut icon" type="image/png" href="lib/jasmine-3.1.0/jasmine_favicon.png">
+  <link rel="stylesheet" href="lib/jasmine-3.1.0/jasmine.css">
+
+  <script src="lib/jasmine-3.1.0/jasmine.js"></script>
+  <script src="lib/jasmine-3.1.0/jasmine-html.js"></script>
+  <script src="lib/jasmine-3.1.0/boot.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+  <!-- include source files here... -->
+
+  <!-- include spec files here... -->
+
+</head>
+
+<body>
+  <div id='guesserDiv' hidden>
+    <div id='guesser1Div'>
+      <span>Actual number is {{actualNumber}}</span>
+      <br>
+      <span>Input number is {{inputNumber}}</span>
+      <br>
+      <br>
+      <span>{{displayMessage}}</span>
+      <br>
+      <!-- <input @change='getInputNumber()' id='numberInputBox' type="range" min="0" max="99"> -->
+      <input id='numberInputBox1' type="number" min="0" max="99">
+      <br>
+      <input type='button' @click="compareNumber" value="Input a number" id="numInputBtn1">
+      <br>
+      <br>
+      <button @click="setup()">Replay</button>
+    </div>
+
+    <div id='guesser2Div'>
+      <span>Actual number is {{actualNumber}}</span>
+      <br>
+      <span>Input number is {{inputNumber}}</span>
+      <br>
+      <br>
+      <span>{{displayMessage}}</span>
+      <br>
+      <input id='numberInputBox2' type="number" min="0" max="99">
+      <br>
+      <input type='button' @click="compareNumber" value="Input a number" id="numInputBtn2">
+      <br>
+      <br>
+      <button @click="setup()">Replay</button>
+    </div>
+    <div id='guesser3Div'></div>
+    <div id='guesser4Div'></div>
+  </div>
+  <script src="src/Guesser1.js"></script>
+  <script src="src/Guesser2.js"></script>
+  <script src="src/ViewModel.js"></script>
+  <script src="spec/Guesser1Spec.js"></script>
+  <script src="spec/Guesser2Spec.js"></script>
+
+</body>
+
+</html>

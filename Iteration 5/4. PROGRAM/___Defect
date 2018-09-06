@@ -1,0 +1,21 @@
+let difference = Math.abs(super.inputNumber - super.actualNumber)
+
+ Must call super constructor in derived class before accessing 'this' or returning from derived constructor
+
+viewModel2.data.guesser = new Guesser2();
+
+super.inputNumber() should be super.inputNumber
+
+ this.actualNumber;   return this.actualNumber;
+
+   let coldCounter ,
+        coolCounter ,
+        warmCounder ,
+        hotCounter =0
+
+   let coldCounter = 0,
+        coolCounter =0,
+        warmCounder = 0,
+        hotCounter =0
+
+didn't add setup()
