@@ -1,0 +1,5 @@
+Set input box 
+
+setup() at replay doesn't pass parameter
+
+forget to add this.setInputNumber() in Guesser2.compareNumber() 
