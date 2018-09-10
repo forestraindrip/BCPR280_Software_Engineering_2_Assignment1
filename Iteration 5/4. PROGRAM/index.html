@@ -33,6 +33,7 @@
       <!-- <input @change='getInputNumber()' id='numberInputBox' type="range" min="0" max="99"> -->
       <input id='numberInputBox1' type="number" min="0" max="99">
       <br>
+      <br>
       <input type='button' @click="compareNumber" value="Input a number" id="numInputBtn1">
       <br>
       <br>
@@ -47,8 +48,8 @@
       <br>
       <span>{{displayMessage}}</span>
       <br>
-      <!-- <input @change='getInputNumber()' id='numberInputBox' type="range" min="0" max="99"> -->
       <input id='numberInputBox2' type="number" min="0" max="99">
+      <br>
       <br>
       <input type='button' @click="compareNumber" value="Input a number" id="numInputBtn2">
       <br>
@@ -61,9 +62,10 @@
 
   <script src="src/ViewModel.js"></script>
   <script>
-
+    /* Q1 */
     let theGuesser1 = new Vue(viewModel)
     theGuesser1.setup()
+    /* Q2 */
     let viewModel2 = JSON.parse(JSON.stringify(viewModel))
     viewModel2.el = "#guesser2Div";
     viewModel2.methods = { ...viewModel.methods }

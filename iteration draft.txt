@@ -1,9 +1,12 @@
+Q1
 1. Create testing cases, spike solution(as dummy program) and Jasmine tester for Q1 (Done)
 2. Draw wireframe and write Q1 program (Done): Vue is both model and controller, no class in the code. Because I don't know how to implement inheritance at that time.
 3. Restructure Q1 vue.js code to allow inheritance for following iterations (Done)
 
+Q2
 4. Draw dynamic diagram,  for Q2
    Create testing cases and Jasmine tester for Q2
+
 5. pseudocode 
 storyboard
 Write Q2 program
