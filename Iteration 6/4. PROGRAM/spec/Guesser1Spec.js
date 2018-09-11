@@ -1,8 +1,13 @@
 /* global describe,it,expect,viewModel,Vue,Guesser */
 describe("guesser1", () => {
-  let theGuesser1 = new Vue(viewModel).guesser;
-  theGuesser1.setup('numberInputBox1');
   
+  let viewModel1 = JSON.parse(JSON.stringify(viewModel))
+  viewModel1.el = '#guesser1Div'
+  viewModel1.methods = { ...viewModel.methods }
+  viewModel1.data.guesser = new Guesser1()
+  let theGuesser1 = new Vue(viewModel1).guesser
+  theGuesser1.setup('numberInputBox1');
+
   it("should generate a number between 0 and 99.", () => {
     let counter = 0;
     for (let i = 0; i < 100; i++) {

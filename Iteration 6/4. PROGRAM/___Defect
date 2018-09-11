@@ -3,3 +3,6 @@ Set input box
 setup() at replay doesn't pass parameter
 
 forget to add this.setInputNumber() in Guesser2.compareNumber() 
+
+<replaybtn :callback='setup.bind(this,"numberInputBox2")'></replaybtn>
+https://github.com/vuejs/vue/issues/2436
