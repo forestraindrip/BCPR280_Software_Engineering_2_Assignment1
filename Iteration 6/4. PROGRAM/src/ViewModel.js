@@ -13,18 +13,18 @@ let viewModel = {
   },
   methods: {
     setup: function(inputBoxID) {
-      this.guesser.setup(inputBoxID);
-      this.getActualNumber();
-      this.guessNumber = NaN;
-      this.displayMessage = "This Is A New Game";
+      this.guesser.setup(inputBoxID)
+      this.getActualNumber()
+      this.guessNumber = NaN
+      this.displayMessage = "This Is A New Game"
     },
     compareNumber: function() {
-      this.displayMessage = this.guesser.compareNumber();
-      this.inputNumber = this.guesser.inputNumber;
+      this.displayMessage = this.guesser.compareNumber()
+      this.inputNumber = this.guesser.inputNumber
     },
 
     getActualNumber: function() {
-      this.actualNumber = this.guesser.getActualNumber();
+      this.actualNumber = this.guesser.getActualNumber()
     }
   }
-};
+}

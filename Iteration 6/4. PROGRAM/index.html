@@ -12,27 +12,26 @@
 </head>
 
 <body>
+  <select id='appMenu' onchange="selectApp()">
+    <option value=""></option>
+    <option value="app1">app1</option>
+    <option value="app2">app2</option>
+    <option value="app3">app3</option>
+    <option value="app4">app4</option>
+  </select>
 
   <div id='guesserDiv'>
-    <select id='appMenu' onchange="selectApp()">
-      <option value=""></option>
-      <option value="app1">app1</option>
-      <option value="app2">app2</option>
-      <option value="app3">app3</option>
-      <option value="app4">app4</option>
-    </select>
-    
     <div id='guesser1Div' v-show="isSeen">
       <H1>App1</H1>
       <!-- <span>Actual number is {{actualNumber}}</span> -->
-      <actualanswer v-bind:actual_number='actualNumber'></actualanswer>
+      <actualanswer :actual_number='actualNumber'></actualanswer>
       <br>
       <!-- <span>Input number is {{inputNumber}}</span> -->
-      <inputnumber v-bind:input_number='inputNumber'></inputnumber>
+      <inputnumber :input_number='inputNumber'></inputnumber>
       <br>
       <br>
       <!-- <span>{{displayMessage}}</span> -->
-      <displaymessage v-bind:display_message='displayMessage'></displaymessage>
+      <displaymessage :display_message='displayMessage'></displaymessage>
       <br>
       <input id='numberInputBox1' type="number" min="0" max="99">
       <br>
@@ -47,14 +46,14 @@
     <div id='guesser2Div' v-show="isSeen">
       <h1>App2</h1>
       <!-- <span>Actual number is {{actualNumber}}</span> -->
-      <actualanswer v-bind:actual_number='actualNumber'></actualanswer>
+      <actualanswer :actual_number='actualNumber'></actualanswer>
       <br>
       <!-- <span>Input number is {{inputNumber}}</span> -->
-      <inputnumber v-bind:input_number='inputNumber'></inputnumber>
+      <inputnumber :input_number='inputNumber'></inputnumber>
       <br>
       <br>
       <!-- <span>{{displayMessage}}</span> -->
-      <displaymessage v-bind:display_message='displayMessage'></displaymessage>
+      <displaymessage :display_message='displayMessage'></displaymessage>
       <br>
       <input id='numberInputBox2' type="number" min="0" max="99">
       <br>
@@ -70,6 +69,7 @@
   </div>
   <script src="src/ViewModel.js"></script>
   <script>
+    /*** Vue ***/
     Vue.component('actualanswer', {
       props: ['actual_number'],
       template: '<span>Actual number is {{actual_number}}</span>'
@@ -89,8 +89,7 @@
       props: ['replay_function'],
       template: '<button @click="replay_function">Replay</button>'
     })
-
-
+    /*** JS ***/
     let appArray = []
     /* Q1 */
     let app1 = createApp('#guesser1Div', Guesser1, 'numberInputBox1')
@@ -102,8 +101,6 @@
     //  let app3 =  createApp('#guesser3Div', Guesser3, 'numberInputBox3')
     /* Q3 */
     //  let app4 =  createApp('#guesser4Div', Guesser4, 'numberInputBox4')
-
-
 
     function createApp(elDivID, aGuesserClass, inputBoxID) {
       let aViewmodel = JSON.parse(JSON.stringify(viewModel))

@@ -1,15 +1,15 @@
 /* global describe,it,expect,viewModel,Vue,Guesser2 */
 
-describe('guesser2', () => {
+describe("guesser2", () => {
   let viewModel2 = JSON.parse(JSON.stringify(viewModel))
-  viewModel2.el = '#guesser2Div'
+  viewModel2.el = "#guesser2Div"
   viewModel2.methods = { ...viewModel.methods }
   viewModel2.data.guesser = new Guesser2()
   let theGuesser2 = new Vue(viewModel2).guesser
 
-  theGuesser2.setup('numberInputBox2')
+  theGuesser2.setup("numberInputBox2")
 
-  it('should generate a number between 0 and 99.', () => {
+  it("should generate a number between 0 and 99.", () => {
     let counter = 0
     for (let i = 0; i < 100; i++) {
       let theNumber = theGuesser2.getActualNumber()
@@ -20,7 +20,7 @@ describe('guesser2', () => {
     expect(counter).toEqual(100)
   })
 
-  describe('guesser2.inputNumber', () => {
+  describe("guesser2.inputNumber", () => {
     it(`should have the inputNumber equal 99 if the input larger than 99`, () => {
       let counter = 0
       for (let n = 100; n < 1000; n++) {
@@ -45,14 +45,14 @@ describe('guesser2', () => {
   })
   describe(`guesser2.compareNumber`, () => {
     describe(`Test1`, () => {
-      theGuesser2.setup('numberInputBox2')
+      theGuesser2.setup("numberInputBox2")
       theGuesser2.actualNumber = 0
       let coldCounter = 0
       let coolCounter = 0
       let warmCounder = 0
       let hotCounter = 0
       let counter = 0
-      let answer = ''
+      let answer = ""
       for (let n = 999; n >= 0; n--) {
         theGuesser2.inputBox.value = n
         counter++
@@ -86,14 +86,14 @@ describe('guesser2', () => {
     })
 
     describe(`Test2`, () => {
-      theGuesser2.setup('numberInputBox2')
+      theGuesser2.setup("numberInputBox2")
       theGuesser2.actualNumber = 99
       let coldCounter = 0
       let coolCounter = 0
       let warmCounder = 0
       let hotCounter = 0
       let counter = 0
-      let answer = ''
+      let answer = ""
       for (let n = -100; n <= 99; n++) {
         theGuesser2.inputBox.value = n
         counter++
