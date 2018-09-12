@@ -25,7 +25,6 @@ class Guesser1 {// eslint-disable-line no-unused-vars
   setup (inputBoxID) {
     this.inputBox = document.getElementById(inputBoxID)
     this.inputBox.value = null
-    // document.getElementById("numInputBtn").removeAttribute("disabled");
     this._inputNumber = null
     this.counter = 0
     this.actualNumber = Math.floor(Math.random() * 100)
@@ -37,8 +36,6 @@ class Guesser1 {// eslint-disable-line no-unused-vars
     this.counter++
     if (this.inputNumber === this.actualNumber) {
       message = `You got it in ${this.counter} trials`
-      // document.getElementById("numInputBtn").setAttribute("disabled", "disabled");
-      // document.getElementById("numberInput").setAttribute("disabled", "disabled");
     } else if (this.inputNumber > this.actualNumber) {
       message = `Try lower`
     } else if (this.inputNumber < this.actualNumber) {

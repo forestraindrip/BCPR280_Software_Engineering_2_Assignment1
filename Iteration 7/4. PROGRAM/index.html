@@ -9,6 +9,8 @@
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="src/Guesser1.js"></script>
   <script src="src/Guesser2.js"></script>
+  <script src="src/Guesser3.js"></script>
+
 </head>
 
 <body>
@@ -61,11 +63,28 @@
       <input type='button' @click="compareNumber" value="Input a number" id="numInputBtn2">
       <br>
       <br>
-      <button @click="setup('numberInputBox1')">Replay</button>
+      <button @click="setup('numberInputBox2')">Replay</button>
       <!-- <replaybtn :replay_function='setup.bind(this,"numberInputBox2")'></replaybtn> -->
     </div>
-    <div id='guesser3Div'></div>
-    <div id='guesser4Div'></div>
+    <div id='guesser3Div' v-show="isSeen">
+      <h1>App3</h1>
+      <!-- <span>{{displayMessage}}</span> -->
+      <h2><displaymessage :display_message='displayMessage'></displaymessage></h2>
+      <input type="radio" id='tryLowerRadio' v-model="userResponse" value="Try Lower">
+      <label for='tryLowerRadio'>Try Lower</label>
+      <input type="radio" id='tryHigherRadio' v-model="userResponse" value="Try Higher">
+      <label for='tryHigherRadio'>Try Higher</label>
+      <input type="radio" id='correctRadio' v-model="userResponse" value="Correct!">
+      <label for='correctRadio'>Correct!</label>
+      <br>
+      <span>{{userResponse}}</span>
+      <br>
+      <input type='button' @click="replyUserResponse" value="Reply" id="inputBtn3">
+      <br>
+      <br>
+      <button @click="app3Setup()">Replay</button>
+    </div>
+    <div id='guesser4Div' v-show="isSeen"></div>
   </div>
   <script src="src/ViewModel.js"></script>
   <script>
@@ -92,23 +111,28 @@
     /*** JS ***/
     let appArray = []
     /* Q1 */
-    let app1 = createApp('#guesser1Div', Guesser1, 'numberInputBox1')
+    let app1 = createApp('#guesser1Div', Guesser1)
+    app1.setup('numberInputBox1')
     appArray.push(app1)
     /* Q2 */
-    let app2 = createApp('#guesser2Div', Guesser2, 'numberInputBox2')
+    let app2 = createApp('#guesser2Div', Guesser2)
+    app2.setup('numberInputBox2')
     appArray.push(app2)
     /* Q3 */
-    //  let app3 =  createApp('#guesser3Div', Guesser3, 'numberInputBox3')
-    /* Q3 */
-    //  let app4 =  createApp('#guesser4Div', Guesser4, 'numberInputBox4')
+    let app3 = createApp('#guesser3Div', Guesser3)
+    app3.app3Setup()
+    appArray.push(app3)
+    /* Q4 */
+    // let app4 = createApp('#guesser4Div', Guesser4)
+    // app4.app4Setup()
+    // appArray.push(app4)
 
-    function createApp(elDivID, aGuesserClass, inputBoxID) {
+    function createApp(elDivID, aGuesserClass) {
       let aViewmodel = JSON.parse(JSON.stringify(viewModel))
       aViewmodel.el = elDivID
       aViewmodel.methods = { ...viewModel.methods }
       aViewmodel.data.guesser = new aGuesserClass()
       let theGuesserApp = new Vue(aViewmodel)
-      theGuesserApp.setup(inputBoxID)
       return theGuesserApp
     }
 
@@ -127,7 +151,7 @@
           appArray[1].isSeen = true
           break
         case 'app3':
-          // appArray[2].isSeen = true
+          appArray[2].isSeen = true
           break
         case 'app4':
           // appArray[3].isSeen = true

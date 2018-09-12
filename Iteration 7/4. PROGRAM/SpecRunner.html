@@ -56,14 +56,36 @@
       <br>
       <button @click="setup('numberInputBox2')">Replay</button>
     </div>
-    <div id='guesser3Div'></div>
+    <div id='guesser3Div'>
+      <h1>App3</h1>
+      <span>{{displayMessage}}</span>
+      <br>
+      <input type="radio" id='tryLowerRadio' v-model="userResponse" value="Try Lower">
+      <label for='tryLowerRadio'>Try Lower</label>
+      <input type="radio" id='tryHigherRadio' v-model="userResponse" value="Try Higher">
+      <label for='tryHigherRadio'>Try Higher</label>
+      <input type="radio" id='correctRadio' v-model="userResponse" value="Correct!">
+      <label for='correctRadio'>Correct!</label>
+      <br>
+      <span>{{userResponse}}</span>
+      <br>
+      <input type='button' @click="replyUserResponse" value="Reply" id="inputBtn3">
+      <br>
+      <br>
+      <button @click="app3Setup()">Replay</button>
+    </div>
     <div id='guesser4Div'></div>
   </div>
+
   <script src="src/Guesser1.js"></script>
   <script src="src/Guesser2.js"></script>
+  <script src="src/Guesser3.js"></script>
+
   <script src="src/ViewModel.js"></script>
+
   <script src="spec/Guesser1Spec.js"></script>
   <script src="spec/Guesser2Spec.js"></script>
+  <script src="spec/Guesser3Spec.js"></script>
 
 </body>
 
