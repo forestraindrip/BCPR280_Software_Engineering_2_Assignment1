@@ -44,7 +44,6 @@ describe("guesser3", () => {
       let counter = 0
       for (let i = 0; i < 100; i++) {
         theGuesser3.setup()
-        // debugger
         theGuesser3.guessNumber = Math.floor(Math.random() * 99)
         let oldGuessNumber = theGuesser3.guessNumber
         theGuesser3.compareNumber("Try Higher")
@@ -57,7 +56,6 @@ describe("guesser3", () => {
       let counter = 0
       for (let i = 0; i < 100; i++) {
         theGuesser3.setup()
-        // debugger
         theGuesser3.guessNumber = Math.floor(Math.random() * 98 + 1)
         let oldGuessNumber = theGuesser3.guessNumber
         theGuesser3.compareNumber("Try Lower")
@@ -95,7 +93,7 @@ describe("guesser3", () => {
     it(`should return "You lie!" when the user lies`, () => {
       let lieCounter = 0
 
-      for (let actualNumber = 0; actualNumber < 100; actualNumber++) {
+      for (let actualNumber = -150; actualNumber < 150; actualNumber++) {
         theGuesser3.setup()
         let timer = 0
         let userResponse = ""
@@ -113,7 +111,7 @@ describe("guesser3", () => {
 
         if (answer === `You lie!`) lieCounter++
       }
-      expect(lieCounter).toBe(100)
+      expect(lieCounter).toBe(300)
     })
   })
 })
