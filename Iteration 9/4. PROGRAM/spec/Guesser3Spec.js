@@ -6,6 +6,10 @@ describe("guesser3", () => {
   viewModel3.data.guesser = new Guesser3()
   let theGuesser3 = new Vue(viewModel3).guesser
 
+  function randomInt(high, low) {
+    return Math.floor(Math.random() * (high - low + 1) + low)
+  }
+
   beforeEach(() => {
     theGuesser3.setup()
   })
@@ -13,7 +17,7 @@ describe("guesser3", () => {
     it("should have .upperLimit", () => {
       expect(theGuesser3.hasOwnProperty("upperLimit")).toBeTruthy()
     })
-    it("should equal 99", () => {
+    it("should be equal 99", () => {
       expect(theGuesser3.upperLimit).toEqual(99)
     })
   })
@@ -21,7 +25,7 @@ describe("guesser3", () => {
     it("should have .lowerLimit", () => {
       expect(theGuesser3.hasOwnProperty("lowerLimit")).toBeTruthy()
     })
-    it("should equal 0", () => {
+    it("should be equal 0", () => {
       expect(theGuesser3.lowerLimit).toEqual(0)
     })
   })
@@ -44,7 +48,7 @@ describe("guesser3", () => {
       let counter = 0
       for (let i = 0; i < 100; i++) {
         theGuesser3.setup()
-        theGuesser3.guessNumber = Math.floor(Math.random() * 99)
+        theGuesser3.guessNumber =randomInt(0,98)
         let oldGuessNumber = theGuesser3.guessNumber
         theGuesser3.compareNumber("Try Higher")
         if (theGuesser3.guessNumber > oldGuessNumber) counter++
@@ -56,7 +60,7 @@ describe("guesser3", () => {
       let counter = 0
       for (let i = 0; i < 100; i++) {
         theGuesser3.setup()
-        theGuesser3.guessNumber = Math.floor(Math.random() * 99+1)
+        theGuesser3.guessNumber = randomInt(1,99)
         // debugger
         let oldGuessNumber = theGuesser3.guessNumber
         theGuesser3.compareNumber("Try Lower")
