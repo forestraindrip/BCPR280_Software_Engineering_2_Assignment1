@@ -16,7 +16,7 @@ describe("guesser4", () => {
     it("should have .upperLimit", () => {
       expect(theGuesser4.hasOwnProperty("upperLimit")).toBeTruthy()
     })
-    it("should be equal 99", () => {
+    it("should equal 99", () => {
       expect(theGuesser4.upperLimit).toEqual(99)
     })
   })
@@ -24,7 +24,7 @@ describe("guesser4", () => {
     it("should have .lowerLimit", () => {
       expect(theGuesser4.hasOwnProperty("lowerLimit")).toBeTruthy()
     })
-    it("should be equal 0", () => {
+    it("should equal 0", () => {
       expect(theGuesser4.lowerLimit).toEqual(0)
     })
   })
