@@ -30,9 +30,9 @@ class Guesser3 extends Guesser1 {
 
   calculateGuessNumber() {
     this.guessNumber = Math.floor((this.upperLimit + this.lowerLimit) / 2)
- /*    console.log(
+    console.log(
       `up:${this.upperLimit}, low:${this.lowerLimit}, guess:${this.guessNumber}`
-    ) */
+    )
   }
 
   analyseUserResponse(userResponse) {
@@ -46,9 +46,9 @@ class Guesser3 extends Guesser1 {
     } else if (userResponse === "Try Higher") {
       this.lowerLimit = this.guessNumber + 1
     }
-    
+
     this.calculateGuessNumber()
-    
+
     if (this.isUserHonest()) {
       response = `Is it ${this.guessNumber}?`
     } else response = "You lie!"

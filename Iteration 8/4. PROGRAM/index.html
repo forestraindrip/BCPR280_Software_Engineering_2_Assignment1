@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Number Guesser</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="src/Guesser1.js"></script>
+  <script src="src/Guesser2.js"></script>
+  <script src="src/Guesser3.js"></script>
+
+</head>
+
+<body>
+  <select id='appMenu' onchange="selectApp()">
+    <option value=""></option>
+    <option value="app1">app1</option>
+    <option value="app2">app2</option>
+    <option value="app3">app3</option>
+    <option value="app4">app4</option>
+  </select>
+
+  <div id='guesserDiv'>
+    <div id='guesser1Div' v-show="isSeen">
+      <H1>App1</H1>
+      <!-- <span>Actual number is {{actualNumber}}</span> -->
+      <actualanswer :actual_number='actualNumber'></actualanswer>
+      <br>
+      <!-- <span>Input number is {{inputNumber}}</span> -->
+      <inputnumber :input_number='inputNumber'></inputnumber>
+      <br>
+      <br>
+      <!-- <span>{{displayMessage}}</span> -->
+      <displaymessage :display_message='displayMessage'></displaymessage>
+      <br>
+      <input id='numberInputBox1' type="number" min="0" max="99">
+      <br>
+      <br>
+      <input type='button' @click="compareNumber" value="Input a number" id="numInputBtn1">
+      <br>
+      <br>
+      <button @click="setup('numberInputBox1')">Replay</button>
+      <!-- <replaybtn :replay_function="setup.bind(this,'numberInputBox1')"></replaybtn> -->
+    </div>
+
+    <div id='guesser2Div' v-show="isSeen">
+      <h1>App2</h1>
+      <!-- <span>Actual number is {{actualNumber}}</span> -->
+      <actualanswer :actual_number='actualNumber'></actualanswer>
+      <br>
+      <!-- <span>Input number is {{inputNumber}}</span> -->
+      <inputnumber :input_number='inputNumber'></inputnumber>
+      <br>
+      <br>
+      <!-- <span>{{displayMessage}}</span> -->
+      <displaymessage :display_message='displayMessage'></displaymessage>
+      <br>
+      <input id='numberInputBox2' type="number" min="0" max="99">
+      <br>
+      <br>
+      <input type='button' @click="compareNumber" value="Input a number" id="numInputBtn2">
+      <br>
+      <br>
+      <button @click="setup('numberInputBox2')">Replay</button>
+      <!-- <replaybtn :replay_function='setup.bind(this,"numberInputBox2")'></replaybtn> -->
+    </div>
+    <div id='guesser3Div' v-show="isSeen">
+      <h1>App3</h1>
+      <!-- <span>{{displayMessage}}</span> -->
+      <h2><displaymessage :display_message='displayMessage'></displaymessage></h2>
+      <input type="radio" id='tryLowerRadio' v-model="userResponse" value="Try Lower">
+      <label for='tryLowerRadio'>Try Lower</label>
+      <input type="radio" id='tryHigherRadio' v-model="userResponse" value="Try Higher">
+      <label for='tryHigherRadio'>Try Higher</label>
+      <input type="radio" id='correctRadio' v-model="userResponse" value="Correct!">
+      <label for='correctRadio'>Correct!</label>
+      <br>
+      <span>{{userResponse}}</span>
+      <br>
+      <input type='button' @click="replyUserResponse" value="Reply" id="inputBtn3">
+      <br>
+      <br>
+      <button @click="app3Setup()">Replay</button>
+    </div>
+    <div id='guesser4Div' v-show="isSeen"></div>
+  </div>
+  <script src="src/ViewModel.js"></script>
+  <script>
+    /*** Vue ***/
+    Vue.component('actualanswer', {
+      props: ['actual_number'],
+      template: '<span>Actual number is {{actual_number}}</span>'
+    })
+
+    Vue.component('inputnumber', {
+      props: ['input_number'],
+      template: '<span>Input number is {{input_number}}</span>'
+    })
+
+    Vue.component('displaymessage', {
+      props: ['display_message'],
+      template: '<span>{{display_message}}</span>'
+    })
+
+    Vue.component('replaybtn', {
+      props: ['replay_function'],
+      template: '<button @click="replay_function">Replay</button>'
+    })
+    /*** JS ***/
+    let appArray = []
+    /* Q1 */
+    let app1 = createApp('#guesser1Div', Guesser1)
+    app1.setup('numberInputBox1')
+    appArray.push(app1)
+    /* Q2 */
+    let app2 = createApp('#guesser2Div', Guesser2)
+    app2.setup('numberInputBox2')
+    appArray.push(app2)
+    /* Q3 */
+    let app3 = createApp('#guesser3Div', Guesser3)
+    app3.app3Setup()
+    appArray.push(app3)
+    /* Q4 */
+    // let app4 = createApp('#guesser4Div', Guesser4)
+    // app4.app4Setup()
+    // appArray.push(app4)
+
+    function createApp(elDivID, aGuesserClass) {
+      let aViewmodel = JSON.parse(JSON.stringify(viewModel))
+      aViewmodel.el = elDivID
+      aViewmodel.methods = { ...viewModel.methods }
+      aViewmodel.data.guesser = new aGuesserClass()
+      let theGuesserApp = new Vue(aViewmodel)
+      return theGuesserApp
+    }
+
+    function selectApp() {
+      for (let app of appArray) {
+        // app.isSeen = false
+      }
+
+      let appMenu = event.target
+      let menuSelectedValue = appMenu.options[appMenu.selectedIndex].value
+      switch (menuSelectedValue) {
+        case 'app1':
+          appArray[0].isSeen = true
+          break
+        case 'app2':
+          appArray[1].isSeen = true
+          break
+        case 'app3':
+          appArray[2].isSeen = true
+          break
+        case 'app4':
+          // appArray[3].isSeen = true
+          break
+        default:
+          break
+      }
+    }
+
+  </script>
+
+</body>
+
+</html>
