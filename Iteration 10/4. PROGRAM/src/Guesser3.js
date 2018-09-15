@@ -1,5 +1,6 @@
 /* global Guesser1, alert */
-class Guesser3 extends Guesser1 {// eslint-disable-line no-unused-vars
+class Guesser3 extends Guesser1 {
+  // eslint-disable-line no-unused-vars
   constructor() {
     super()
     this.counter = super.counter

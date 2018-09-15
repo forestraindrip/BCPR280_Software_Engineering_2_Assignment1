@@ -1,6 +1,6 @@
-/* global Guesser3 */
-class Guesser4 extends Guesser3 {// eslint-disable-line no-unused-vars
-  constructor () {
+/* global Guesser3, alert */
+class Guesser4 extends Guesser3 {
+  constructor() {
     super()
     this.counter = super.counter
     this.guessNumber = super.guessNumber
@@ -11,14 +11,14 @@ class Guesser4 extends Guesser3 {// eslint-disable-line no-unused-vars
     this.oldGap = 40
   }
 
-  setup () {
+  setup() {
     super.setup()
     this.guessNumber = 0
     this.gap = 40
     this.oldGap = 40
   }
 
-  compareNumber (userResponse) {
+  compareNumber(userResponse) {
     this.counter++
     this.userResponse = userResponse
     let message = this.analyseUserResponse(this.userResponse)
@@ -26,44 +26,46 @@ class Guesser4 extends Guesser3 {// eslint-disable-line no-unused-vars
     return message
   }
 
-  getGuessNumber () {
+  getGuessNumber() {
     return super.getGuessNumber()
   }
 
-  calculateGuessNumber (userResponse) {
+  calculateGuessNumber(userResponse) {
     this.oldGap = this.gap
-    if (userResponse === 'Cold') {
+    if (userResponse === "Cold") {
       this.guessNumber += 40
       this.gap = 40
-    } else if (userResponse === 'Cool') {
+    } else if (userResponse === "Cool") {
       this.guessNumber += 20
       this.gap = 20
-    } else if (userResponse === 'Warm') {
+    } else if (userResponse === "Warm") {
       this.guessNumber += 10
       this.gap = 10
-    } else if (userResponse === 'Hot') {
+    } else if (userResponse === "Hot") {
       this.guessNumber += 1
       this.gap = 1
     }
     this.lowerLimit = this.guessNumber
   }
 
-  analyseUserResponse (userResponse) {
-    let myResponse = ''
+  analyseUserResponse(userResponse) {
+    let myResponse = ""
 
-    if (userResponse === 'Correct!') {
+    if (userResponse === "Correct!") {
       myResponse = `I got it in ${this.counter} trials`
       return myResponse
     } else this.calculateGuessNumber(userResponse)
 
     if (this.isUserHonest()) {
       myResponse = `Is it ${this.guessNumber}?`
-    } else myResponse = 'You lie!'
+    } else myResponse = "You lie!"
 
     return myResponse
   }
 
-  isUserHonest () {
-    if (this.lowerLimit > this.upperLimit || this.gap > this.oldGap) { return false } else return true
+  isUserHonest() {
+    if (this.lowerLimit > this.upperLimit || this.gap > this.oldGap)
+      return false
+    else return true
   }
 }

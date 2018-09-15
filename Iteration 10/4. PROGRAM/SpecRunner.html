@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Jasmine Spec Runner v3.1.0</title>
+
+  <link rel="shortcut icon" type="image/png" href="lib/jasmine-3.1.0/jasmine_favicon.png">
+  <link rel="stylesheet" href="lib/jasmine-3.1.0/jasmine.css">
+
+  <script src="lib/jasmine-3.1.0/jasmine.js"></script>
+  <script src="lib/jasmine-3.1.0/jasmine-html.js"></script>
+  <script src="lib/jasmine-3.1.0/boot.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+  <!-- include source files here... -->
+
+  <!-- include spec files here... -->
+
+</head>
+
+<body>
+  <div id='guesserDiv' hidden>
+    <div id='guesser1Div'>
+      <span>Actual number is {{actualNumber}}</span>
+      <br>
+      <span>Input number is {{inputNumber}}</span>
+      <br>
+      <br>
+      <span>{{displayMessage}}</span>
+      <br>
+      <!-- <input @change='getInputNumber()' id='numberInputBox' type="range" min="0" max="99"> -->
+      <input id='numberInputBox1' type="number" min="0" max="99">
+      <br>
+      <br>
+      <input type='button' @click="compareNumber" value="Input a number" id="numInputBtn1">
+      <br>
+      <br>
+      <button @click="setup('numberInputBox1')">Replay</button>
+    </div>
+
+    <div id='guesser2Div'>
+      <span>Actual number is {{actualNumber}}</span>
+      <br>
+      <span>Input number is {{inputNumber}}</span>
+      <br>
+      <br>
+      <span>{{displayMessage}}</span>
+      <br>
+      <input id='numberInputBox2' type="number" min="0" max="99">
+      <br>
+      <br>
+      <input type='button' @click="compareNumber" value="Input a number" id="numInputBtn2">
+      <br>
+      <br>
+      <button @click="setup('numberInputBox2')">Replay</button>
+    </div>
+    <div id='guesser3Div'>
+      <h1>App3</h1>
+      <span>{{displayMessage}}</span>
+      <br>
+      <input type="radio" id='tryLowerRadio' v-model="userResponse" value="Try Lower">
+      <label for='tryLowerRadio'>Try Lower</label>
+      <input type="radio" id='tryHigherRadio' v-model="userResponse" value="Try Higher">
+      <label for='tryHigherRadio'>Try Higher</label>
+      <input type="radio" id='correctRadio' v-model="userResponse" value="Correct!">
+      <label for='correctRadio'>Correct!</label>
+      <br>
+      <span>{{userResponse}}</span>
+      <br>
+      <input type='button' @click="replyUserResponse" value="Reply" id="inputBtn3">
+      <br>
+      <br>
+      <button @click="app3Setup()">Replay</button>
+    </div>
+    <div id='guesser4Div'>
+
+      <input type="radio" id='coldRadio' v-model="userResponse" value="Cold">
+      <label for='coldRadio'>Cold</label>
+
+      <input type="radio" id='coolRadio' v-model="userResponse" value="Cool">
+      <label for='coolRadio'>Cool</label>
+
+      <input type="radio" id='warmRadio' v-model="userResponse" value="Warm">
+      <label for='warmRadio'>Warm</label>
+
+      <input type="radio" id='hotRadio' v-model="userResponse" value="Hot">
+      <label for='hotRadio'>Hot</label>
+
+      <input type="radio" id='app4CorrectRadio' v-model="userResponse" value="Correct!">
+      <label for='app4CorrectRadio'>Correct!</label>
+
+      <br>
+      <span>{{userResponse}}</span>
+      <br>
+      <input type='button' @click="replyUserResponse" value="Reply" id="inputBtn4">
+      <br>
+      <br>
+      <button @click="app4Setup()">Replay</button>
+    </div>
+  </div>
+
+  <script src="src/Guesser1.js"></script>
+  <script src="src/Guesser2.js"></script>
+  <script src="src/Guesser3.js"></script>
+  <script src="src/Guesser4.js"></script>
+
+  <script src="src/ViewModel.js"></script>
+
+  <script src="spec/Guesser1Spec.js"></script>
+  <script src="spec/Guesser2Spec.js"></script>
+  <script src="spec/Guesser3Spec.js"></script>
+  <script src="spec/Guesser4Spec.js"></script>
+
+</body>
+
+</html>
