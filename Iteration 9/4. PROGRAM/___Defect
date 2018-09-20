@@ -1,7 +1,0 @@
-duplicate correct radio Id
-
-The tester should detect user input smaller input than input larger input
-
-/ should be %
-
-forget to reset     this.gap = 40 this.oldGap = 40
