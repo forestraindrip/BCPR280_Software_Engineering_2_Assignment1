@@ -15,7 +15,7 @@
 
 <body>
   <select id='appMenu' onchange="selectApp()">
-    <option value=""></option>
+    <!-- <option value=""></option> -->
     <option value="app1">app1</option>
     <option value="app2">app2</option>
     <option value="app3">app3</option>
@@ -158,6 +158,7 @@
     let app4 = createApp('#guesser4Div', Guesser4)
     app4.app4Setup()
     appArray.push(app4)
+    app4.isSeen = true
 
     let isNormalMode = false
 
@@ -173,12 +174,10 @@
 
     function selectApp() {
 
-
       for (let app of appArray) {
         app.isSeen = false
       }
-
-
+      
       let appMenu = event.target
       let menuSelectedValue = appMenu.options[appMenu.selectedIndex].value
       switch (menuSelectedValue) {

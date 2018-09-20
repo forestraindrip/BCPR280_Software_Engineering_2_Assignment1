@@ -6,8 +6,8 @@ let viewModel = {// eslint-disable-line no-unused-vars
     displayMessage: null,
     inputNumber: '???',
     guesser: null,
-    isSeen: true,
-    // isSeen: false,
+    // isSeen: true,
+    isSeen: false,
     userResponse: null,
     guessNumber: null
   },
