@@ -10,7 +10,7 @@
 
 6. I tend to obsess with difficult question I cannot solve quickly
 
-7. I tend to dive into difficult knowledge when I don need to
+7. I tend to dive into difficult knowledge I don need to
 
 8. I tend to add features during the project because I think they are easy to implement
 
